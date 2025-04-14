@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品展示</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>我们的产品</h1>
+    </header>
+
+    <main>
+        <div class="products-container">
+            {% for product in products %}
+            <div class="product-card">
+                <img src="{{ url_for('static', filename='images/' + product.image) }}"
+                     alt="{{ product.name }}" class="product-image">
+                <h2>{{ product.name }}</h2>
+                <p class="description">{{ product.description }}</p>
+                <p class="price">{{ product.price }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 产品展示网站. 保留所有权利.</p>
+    </footer>
+</body>
+</html>
